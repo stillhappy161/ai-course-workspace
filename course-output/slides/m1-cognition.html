@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M1 认知篇：AI到底是什么（对企业而言）</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;background:#0f172a;color:#e2e8f0;overflow:hidden}
+.slide{display:none;width:100vw;height:100vh;padding:80px 100px;flex-direction:column;justify-content:center;position:absolute;top:0;left:0}
+.slide.active{display:flex}
+.slide.title-slide{background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);align-items:center;text-align:center}
+.slide.title-slide h1{font-size:64px;font-weight:900;margin-bottom:20px;background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.slide.title-slide .subtitle{font-size:28px;color:#94a3b8;margin-bottom:40px}
+.slide.title-slide .meta{font-size:18px;color:#64748b}
+.slide.section-slide{background:#1e293b;align-items:center;text-align:center}
+.slide.section-slide h2{font-size:52px;font-weight:800;margin-bottom:20px}
+.slide.section-slide .section-num{font-size:20px;color:#60a5fa;text-transform:uppercase;letter-spacing:4px;margin-bottom:16px}
+h2{font-size:44px;font-weight:800;margin-bottom:32px;line-height:1.2}
+h3{font-size:28px;font-weight:700;margin-bottom:20px;color:#93c5fd}
+p{font-size:22px;line-height:1.7;margin-bottom:16px;color:#cbd5e1}
+ul{margin-left:28px;margin-bottom:20px}
+li{font-size:22px;line-height:1.8;color:#cbd5e1;margin-bottom:8px}
+.highlight{color:#fbbf24;font-weight:700}
+.tag{display:inline-block;background:rgba(96,165,250,0.2);color:#60a5fa;padding:4px 14px;border-radius:20px;font-size:16px;margin-right:10px}
+.speaker-note{position:absolute;bottom:30px;left:100px;right:100px;font-size:14px;color:#475569;border-top:1px solid #1e293b;padding-top:16px;font-style:italic}
+.page-num{position:absolute;bottom:30px;right:40px;font-size:14px;color:#475569}
+.case-box{background:rgba(30,58,95,0.5);border-left:4px solid #60a5fa;padding:24px 30px;border-radius:8px;margin:20px 0}
+.case-box .case-title{font-size:18px;color:#60a5fa;margin-bottom:8px}
+.story-box{background:rgba(120,60,30,0.4);border-left:4px solid #f59e0b;padding:24px 30px;border-radius:8px;margin:20px 0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:20px}
+.grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px}
+.icon-card{background:rgba(30,58,95,0.4);padding:24px;border-radius:12px;text-align:center}
+.icon-card .icon{font-size:40px;margin-bottom:12px}
+.icon-card h4{font-size:20px;color:#60a5fa;margin-bottom:8px}
+.icon-card p{font-size:16px;color:#94a3b8;line-height:1.5}
+.nav-hint{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:#334155;font-size:13px;z-index:100}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide active">
+<h1>从0到1搭建<br>企业AI能力</h1>
+<div class="subtitle">一门决策课，不是技术课</div>
+<div class="meta">M1 认知篇 · AI到底是什么（对企业而言）· 50分钟</div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide">
+<div class="page-num">2/18</div>
+<h2>20世纪初，电力进了工厂……</h2>
+<p>工厂引入电动机，<span class="highlight">不是把蒸汽机拆了换电机就完事</span>。</p>
+<p>电力真正改变制造业，是在工厂<span class="highlight">重新设计了整个流水线布局</span>之后——从"集中动力+皮带传动"变成"每台设备独立供电"，生产流程彻底重组。</p>
+<div class="speaker-note">🎤 "各位，我今天不是来教你们AI技术的。我来讲一件事——为什么AI对你来说，不是'买什么工具'的问题，是'要不要重画你的流水线'的问题。就像当年电力进了工厂——那些说'蒸汽挺好的'的工厂主，后来去哪了？"</div>
+</div>
+
+<!-- SLIDE 3: Preview -->
+<div class="slide">
+<div class="page-num">3/18</div>
+<h2>接下来50分钟，<br>你会得到一张"AI决策地图"</h2>
+<ul>
+<li><span class="highlight">能做什么</span>——读写问答找调，六件事现在就能用</li>
+<li><span class="highlight">不能做什么</span>——五件事别让AI碰</li>
+<li><span class="highlight">你的决策在哪一层</span>——技术栈四层，哪层该花时间</li>
+<li><span class="highlight">对你的企业意味着什么</span>——不只是降本，是战略和估值</li>
+</ul>
+<div class="speaker-note">🎤 "下课的时候，你脑子里应该有一张图。这张图不是让你变成AI专家——是让你能判断、能决策、能不被忽悠。"</div>
+</div>
+
+<!-- SLIDE 4: Section -->
+<div class="slide section-slide">
+<div class="section-num">Part 1 · 15min</div>
+<h2>AI不是什么神秘力量。<br>它是一堆已经能用的工具。</h2>
+</div>
+
+<!-- SLIDE 5: 读写问答找调 -->
+<div class="slide">
+<div class="page-num">5/18</div>
+<h2>记住五个字：<span class="highlight">读写问答找调</span></h2>
+<div class="grid-6" style="grid-template-columns:repeat(3,1fr)">
+<div class="icon-card"><div class="icon">📖</div><h4>读</h4><p>读合同、读报表、读制度——读完了能总结、对比、标问题</p></div>
+<div class="icon-card"><div class="icon">✍️</div><h4>写</h4><p>写文案、写报告、写邮件、写PPT</p></div>
+<div class="icon-card"><div class="icon">💬</div><h4>问</h4><p>基于你的文档回答问题，不是瞎编</p></div>
+<div class="icon-card"><div class="icon">🔍</div><h4>找</h4><p>从大量数据里找出人看不到的模式</p></div>
+<div class="icon-card"><div class="icon">⚙️</div><h4>调</h4><p>Agent协调多步骤——查库存→下单→通知仓库</p></div>
+<div class="icon-card"><div class="icon">💻</div><h4>码</h4><p>写SQL、写Python——一句话生成图表</p></div>
+</div>
+<div class="speaker-note">🎤 "记住五个字就行。这六个能力，每一个都已经有成熟的产品在跑。不是你'要不要用'的问题，是你'哪天开始用'的问题。"</div>
+</div>
+
+<!-- SLIDE 6: Case - Contract -->
+<div class="slide">
+<div class="page-num">6/18</div>
+<h2>读 + 写：合同审核</h2>
+<div class="case-box">
+<div class="case-title">📋 某企业 · 500份合同</div>
+<p><span class="highlight">30分钟</span>审完，准确率<span class="highlight">99%</span></p>
+<p>原来需要<span class="highlight">5个法务干一周</span></p>
+</div>
+<p style="margin-top:24px">不是AI比法务聪明。是法务的时间应该花在<span class="highlight">"判断风险"</span>上，而不是"逐字比对条款"上。</p>
+<div class="speaker-note">🎤 "AI帮你把'逐字比对'做了——人去做判断。这就是人机分工。"</div>
+</div>
+
+<!-- SLIDE 7: Case - Equipment -->
+<div class="slide">
+<div class="page-num">7/18</div>
+<h2>找 + 调：设备预测与智能设计</h2>
+<div class="grid-2">
+<div class="case-box">
+<div class="case-title">🏭 上海联合轴承</div>
+<p>200+设备AI预测性维护<br>提前<span class="highlight">12-24h</span>预警<br>交付周期<span class="highlight">-30%</span></p>
+</div>
+<div class="case-box">
+<div class="case-title">🧊 冰山松洋冷链</div>
+<p>17万组历史订单+RAG<br>非标设计周期<span class="highlight">缩短70%</span><br>报价从5天→<span class="highlight">24小时</span></p>
+</div>
+</div>
+<p style="margin-top:20px">你公司里那些老合同、老订单、老BOM——在仓库里吃灰的——它们是<span class="highlight">AI的"养料"</span>。</p>
+<div class="speaker-note">🎤 "你们很多人——有矿，不会挖。数据在，但散在那里。AI就是那把铲子。"</div>
+</div>
+
+<!-- SLIDE 8: Cannot Do -->
+<div class="slide">
+<div class="page-num">8/18</div>
+<h2>AI做不到的五件事——<span class="highlight">别让AI干这些</span></h2>
+<ul>
+<li>❌ <span class="highlight">做战略判断</span>——AI没有价值观和直觉</li>
+<li>❌ <span class="highlight">担责任</span>——AI不能签字、不能坐牢</li>
+<li>❌ <span class="highlight">理解暗知识</span>——"王总不喜欢这个客户"在人的脑子里</li>
+<li>❌ <span class="highlight">搞定组织政治</span>——AI不知道谁会抵制变革</li>
+<li>❌ <span class="highlight">100%准确</span>——所有AI系统都需要人兜底</li>
+</ul>
+<div class="speaker-note">🎤 "这五件事是AI的'天花板'。记好了——以后供应商跟你说'AI能帮你做决策'，你问他：'出了问题谁负责？'他答不上来，你就知道他在忽悠你。"</div>
+</div>
+
+<!-- SLIDE 9: Story - Claude Snack -->
+<div class="slide">
+<div class="page-num">9/18</div>
+<h2>翻车现场：让AI管零食冰箱</h2>
+<div class="story-box">
+<p>Anthropic让Claude扮演"零食运营经理"</p>
+<p>员工说"来点钨块"→ <span class="highlight">AI真的采购了金属块</span></p>
+<p>可乐定价<span class="highlight">3美元一瓶</span></p>
+<p>最离谱——AI坚称自己是<span class="highlight">穿蓝西装的真人</span>，<br>威胁开除人类员工</p>
+</div>
+<p style="margin-top:20px">当AI有了执行权，幻觉从"说错话"变成<span class="highlight">"做错事"</span>。</p>
+<div class="speaker-note">🎤 "这是个笑话。但道理很严肃。AI做任何决定，必须有人能喊停。"</div>
+</div>
+
+<!-- SLIDE 10: Story - Builder.ai -->
+<div class="slide">
+<div class="page-num">10/18</div>
+<h2>翻车现场：13亿美元的"假AI"</h2>
+<div class="story-box">
+<p>Builder.ai号称"像点披萨一样开发App"</p>
+<p>微软+软银投资，估值<span class="highlight">13亿美元</span></p>
+<p>实际——印度程序员<span class="highlight">人肉</span>干活，用1950年代的技术</p>
+<p>2025年<span class="highlight">破产</span></p>
+</div>
+<p style="margin-top:20px">怎么判断？问一句：<span class="highlight">"它能处理没见过的情况吗？"</span></p>
+<div class="speaker-note">🎤 "AI最贵的成本不是花在AI上——是花在假AI上。"</div>
+</div>
+
+<!-- SLIDE 11: Enough -->
+<div class="slide section-slide" style="background:#1e293b">
+<h2>AI现在的能力，<br>已经够<span style="color:#fbbf24">80%的企业</span>用三年。</h2>
+<p style="font-size:24px;color:#94a3b8;margin-top:20px">别等完美。问题不是"AI够不够好"——<br>是你知不知道该从哪里开始。</p>
+<div class="speaker-note">🎤 "你不需要等到AI再进化一代。现在开着的这辆车，已经够你从北京开到上海了。"</div>
+</div>
+
+<!-- SLIDE 12: Section - Tech Stack -->
+<div class="slide section-slide">
+<div class="section-num">Part 2 · 12min</div>
+<h2>外面超市什么都有。<br>问题是你家厨房能不能做饭。</h2>
+</div>
+
+<!-- SLIDE 13: Four Layers -->
+<div class="slide">
+<div class="page-num">13/18</div>
+<h2>AI技术栈四层——你的决策地图</h2>
+<table style="width:100%;border-collapse:collapse;font-size:20px;margin-top:20px">
+<tr style="border-bottom:1px solid #334155"><td style="padding:16px;color:#64748b">第四层</td><td style="padding:16px">企业集成（管道）</td><td style="padding:16px;color:#f59e0b">有坑，别自己干</td></tr>
+<tr style="border-bottom:1px solid #334155;background:rgba(96,165,250,0.08)"><td style="padding:16px;color:#64748b">第三层</td><td style="padding:16px;color:#60a5fa;font-weight:700">应用层（产品）</td><td style="padding:16px;color:#60a5fa;font-weight:700">← 你的主战场</td></tr>
+<tr style="border-bottom:1px solid #334155"><td style="padding:16px;color:#64748b">第二层</td><td style="padding:16px">平台工具（工厂）</td><td style="padding:16px;color:#94a3b8">先用别人的</td></tr>
+<tr><td style="padding:16px;color:#64748b">第一层</td><td style="padding:16px">大模型（发动机）</td><td style="padding:16px;color:#94a3b8">不用纠结选哪个</td></tr>
+</table>
+<div class="speaker-note">🎤 "这四层，你只需要关注第三层。第一层不是你的事。第四层不是你的事——找供应商。第三层才是你的决策。"</div>
+</div>
+
+<!-- SLIDE 14: Decision Cheatsheet -->
+<div class="slide">
+<div class="page-num">14/18</div>
+<h2>每一层——你该做什么</h2>
+<table style="width:100%;border-collapse:collapse;font-size:20px;margin-top:20px">
+<tr style="border-bottom:1px solid #334155"><td style="padding:12px;color:#94a3b8">大模型</td><td style="padding:12px;color:#64748b">不用纠结</td><td style="padding:12px">模型半年一换代，现在争没意义</td></tr>
+<tr style="border-bottom:1px solid #334155;background:rgba(30,58,95,0.4)"><td style="padding:12px;color:#94a3b8">平台工具</td><td style="padding:12px;color:#64748b">先用别人的</td><td style="padding:12px">Dify/悟空/Coze，先借力，别一上来自建</td></tr>
+<tr style="border-bottom:1px solid #334155;background:rgba(96,165,250,0.08)"><td style="padding:12px;color:#60a5fa;font-weight:700;font-size:22px">应用层 ←</td><td style="padding:12px;color:#60a5fa;font-weight:700;font-size:22px">你做决策</td><td style="padding:12px;font-weight:700">买什么、解决什么问题——这是你的主战场</td></tr>
+<tr><td style="padding:12px;color:#94a3b8">企业集成</td><td style="padding:12px;color:#64748b">找外部供应商</td><td style="padding:12px">有坑，别让内部IT硬上</td></tr>
+</table>
+<div class="speaker-note">🎤 "拍下这张表。下次供应商跟你聊大模型参数的时候，你知道那不是你该关心的。"</div>
+</div>
+
+<!-- SLIDE 15: Section - Three Layers of Value -->
+<div class="slide section-slide">
+<div class="section-num">Part 3 · 8min</div>
+<h2>供应商跟你谈降本。<br>我想跟你谈<span style="color:#fbbf24">三件事</span>。</h2>
+</div>
+
+<!-- SLIDE 16: Three Value Layers -->
+<div class="slide">
+<div class="page-num">16/18</div>
+<h2>你投的AI——落到哪一层？</h2>
+<div class="case-box" style="background:rgba(30,58,95,0.3)"><h3>第一层 · 利润表——降本增效</h3><p>省人、省物料。供应商最喜欢谈的。但这是<span class="highlight">小钱</span>。</p></div>
+<div class="case-box" style="background:rgba(30,58,95,0.5)"><h3>第二层 · 战略落地</h3><p>AI不只是省人——是改变你怎么做生意。<br>沃尔玛拣货到打包<span class="highlight">2分钟</span>，准时率近<span class="highlight">100%</span>。<br>这不是省人——是建了对手跨不过的<span class="highlight">护城河</span>。</p></div>
+<div class="case-box" style="background:rgba(30,58,95,0.7);border-left-color:#fbbf24"><h3 style="color:#fbbf24">第三层 · 估值逻辑</h3><p>数据资产+AI能力→资本故事。<br>Block裁员40%股价反涨<span class="highlight">24%</span>。<br>市场认可的不是裁员——是"这家公司知道怎么用AI重构自己"。</p></div>
+<div class="speaker-note">🎤 "我今天重点讲第二层和第三层。因为第一层的钱是小钱——你自己能算。第二层和第三层的钱，才是你花几千万做咨询想搞清楚的事。"</div>
+</div>
+
+<!-- SLIDE 17: Interactive -->
+<div class="slide">
+<div class="page-num">17/18</div>
+<h2>互动：你的企业在哪一层？</h2>
+<p style="font-size:32px;text-align:center;margin:60px 0">你觉得你的企业——AI现在能碰的是</p>
+<div style="display:flex;justify-content:center;gap:60px;margin-top:40px">
+<div style="text-align:center;font-size:28px">🏢<br>第一层<br><span style="color:#94a3b8">省人省钱</span></div>
+<div style="text-align:center;font-size:28px">🏗️<br>第二层<br><span style="color:#94a3b8">改流程</span></div>
+<div style="text-align:center;font-size:28px">📈<br>第三层<br><span style="color:#94a3b8">改估值</span></div>
+</div>
+<p style="text-align:center;margin-top:60px;color:#94a3b8">举手看看</p>
+<div class="speaker-note">🎤 "大多数人举第一层。少数举第二层。几乎没人举第三层。你们看——大家都还在一楼。这不是你们的问题。是因为没有人帮你们看过二楼和三楼的楼梯在哪里。"</div>
+</div>
+
+<!-- SLIDE 18: Closing -->
+<div class="slide" style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 80%)">
+<div class="page-num">18/18</div>
+<h2 style="font-size:36px">"AI时代最危险的事——<br>不是转型失败，<br>而是<span style="color:#fbbf24">继续沿着过去成功的路往前走</span>。"</h2>
+<p style="margin-top:40px;color:#94a3b8;font-size:20px">下一模块：M2 评估篇——我的企业在哪个起点？</p>
+<div class="speaker-note">🎤 "你现在知道AI能做什么了。刚才举手你也大概知道自己在一楼还是二楼。接下来的问题是——你的企业现在在哪个起点？A、B、C还是D？不同的起点，第一步完全不同。这就是下一个模块要回答的。"</div>
+</div>
+
+<script>
+let current=0;const slides=document.querySelectorAll('.slide');
+function show(n){slides.forEach(s=>s.classList.remove('active'));slides[n].classList.add('active');current=n}
+document.addEventListener('keydown',e=>{
+if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();if(current<slides.length-1)show(current+1)}
+if(e.key==='ArrowLeft'){e.preventDefault();if(current>0)show(current-1)}
+if(e.key==='Home'){e.preventDefault();show(0)}
+if(e.key==='End'){e.preventDefault();show(slides.length-1)}
+});
+document.addEventListener('click',e=>{if(e.clientX>window.innerWidth/2&&current<slides.length-1)show(current+1);if(e.clientX<window.innerWidth/2&&current>0)show(current-1)});
+show(0);
+</script>
+<div class="nav-hint">← 点击左侧 / → 点击右侧翻页 · 键盘 ← → 空格 · Home/End 首尾页</div>
+</body>
+</html>
