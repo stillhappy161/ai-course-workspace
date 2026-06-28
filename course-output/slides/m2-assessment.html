@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M2 评估篇：我的企业在哪个起点</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;background:#0f172a;color:#e2e8f0;overflow:hidden}
+.slide{display:none;width:100vw;height:100vh;padding:70px 100px;flex-direction:column;justify-content:center;position:absolute;top:0;left:0;overflow-y:auto}
+.slide.active{display:flex}
+.slide.title-slide{background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);align-items:center;text-align:center}
+.slide.title-slide h1{font-size:64px;font-weight:900;margin-bottom:20px;background:linear-gradient(90deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.slide.title-slide .subtitle{font-size:28px;color:#94a3b8;margin-bottom:40px}
+.slide.section-slide{background:#1e293b;align-items:center;text-align:center}
+.slide.section-slide h2{font-size:48px;font-weight:800;margin-bottom:16px}
+.slide.section-slide .section-num{font-size:20px;color:#f59e0b;text-transform:uppercase;letter-spacing:4px;margin-bottom:16px}
+h2{font-size:40px;font-weight:800;margin-bottom:28px;line-height:1.2}
+h3{font-size:26px;font-weight:700;margin-bottom:18px;color:#fbbf24}
+p{font-size:22px;line-height:1.7;margin-bottom:14px;color:#cbd5e1}
+ul{margin-left:28px;margin-bottom:18px}
+li{font-size:21px;line-height:1.7;color:#cbd5e1;margin-bottom:8px}
+.highlight{color:#fbbf24;font-weight:700}
+.danger{color:#ef4444;font-weight:700}
+.tag{display:inline-block;background:rgba(245,158,11,0.15);color:#f59e0b;padding:4px 14px;border-radius:20px;font-size:16px;margin-right:10px}
+.speaker-note{position:absolute;bottom:24px;left:100px;right:100px;font-size:14px;color:#475569;border-top:1px solid #1e293b;padding-top:14px;font-style:italic}
+.page-num{position:absolute;bottom:24px;right:40px;font-size:14px;color:#475569}
+.matrix{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:20px}
+.matrix .cell{padding:20px;border-radius:12px;text-align:center;min-height:100px;display:flex;flex-direction:column;justify-content:center}
+.matrix .label{font-size:14px;color:#64748b;margin-bottom:4px}
+.cell.a{background:rgba(34,197,94,0.15);border:2px solid rgba(34,197,94,0.4)}
+.cell.b{background:rgba(245,158,11,0.15);border:2px solid rgba(245,158,11,0.5)}
+.cell.c{background:rgba(148,163,184,0.12);border:2px solid rgba(148,163,184,0.3)}
+.cell.d{background:rgba(239,68,68,0.12);border:2px solid rgba(239,68,68,0.3)}
+.case-box{background:rgba(30,58,95,0.4);border-left:4px solid #f59e0b;padding:20px 26px;border-radius:8px;margin:16px 0}
+.story-box{background:rgba(120,60,30,0.35);border-left:4px solid #ef4444;padding:20px 26px;border-radius:8px;margin:16px 0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.nav-hint{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:#334155;font-size:13px;z-index:100}
+.big-num{font-size:64px;font-weight:900;color:#f59e0b}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide active">
+<h1>我的企业<br>在哪个起点？</h1>
+<div class="subtitle">M2 评估篇 · 55分钟</div>
+</div>
+
+<!-- SLIDE 2: Hook -->
+<div class="slide">
+<div class="page-num">2/20</div>
+<h2>95%的AI项目死在<span class="danger">概念验证</span></h2>
+<p>MIT：<span class="highlight">95%</span>的项目没过PoC</p>
+<p>麦肯锡：<span class="highlight">90%</span>启动，仅<span class="highlight">10%</span>规模化</p>
+<p style="margin-top:24px">为什么？因为大多数人<span class="highlight">第一步就走错了</span>——<br>没搞清楚自己在哪。</p>
+<div class="speaker-note">🎤 "各位，在AI这件事上，你最大的风险不是技术跟不上，是起点判断错了——A类企业用了C类的做法会浪费钱，C类企业用了A类的做法会浪费更多钱。"</div>
+</div>
+
+<!-- SLIDE 3: 2x2 Matrix -->
+<div class="slide">
+<div class="page-num">3/20</div>
+<h2>两个问题，判断你在哪</h2>
+<div class="grid-2">
+<div><p style="font-size:28px;text-align:center;margin-top:40px">数据基础<br><span style="font-size:18px;color:#94a3b8">核心数据一小时内能拉出来吗？</span></p></div>
+<div><p style="font-size:28px;text-align:center;margin-top:40px">组织/技术能力<br><span style="font-size:18px;color:#94a3b8">有人能说清楚每个系统里有什么数据吗？</span></p></div>
+</div>
+<div class="matrix" style="margin-top:30px">
+<div style="padding:20px;text-align:center;color:#64748b;font-size:16px">← 差 &nbsp;&nbsp;&nbsp; 数据基础 &nbsp;&nbsp;&nbsp; 好 →</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px">
+<div class="cell c"><div class="label">弱</div><strong style="font-size:28px">C</strong><br>两手空空</div>
+<div class="cell a"><div class="label">强</div><strong style="font-size:28px">A</strong><br>子弹上膛</div>
+<div class="cell b"><div class="label">弱</div><strong style="font-size:28px">B</strong><br>有矿不会挖</div>
+<div class="cell d"><div class="label">强</div><strong style="font-size:28px">D</strong><br>有枪没子弹</div>
+</div>
+<div class="speaker-note">🎤 "我来猜一下你们在哪里。两个问题都是Yes→A。两个都是No→C。一个有、一个没有→猜猜你在哪？"</div>
+</div>
+
+<!-- SLIDE 4: Interactive -->
+<div class="slide">
+<div class="page-num">4/20</div>
+<h2>互动：你在哪个格子？</h2>
+<p style="font-size:36px;text-align:center;margin:50px 0">觉得自己属于<span class="highlight">B类</span>的——举个手</p>
+<div style="display:flex;justify-content:center;gap:40px;margin-top:40px;font-size:24px">
+<div class="cell a" style="min-width:120px">🟢 A<br>少数</div>
+<div class="cell b" style="min-width:140px;border-width:3px">🟡 B<br>← 大多数</div>
+<div class="cell c" style="min-width:120px">🟡 C</div>
+<div class="cell d" style="min-width:120px">🔴 D</div>
+</div>
+<div class="speaker-note">🎤 大量人举手。讲师："你们不是落后——你们是正常的。中国的企业，大多数就在B这个格子里。"</div>
+</div>
+
+<!-- SLIDE 5: A Type -->
+<div class="slide">
+<div class="page-num">5/20</div>
+<h2>🟢 A类：子弹上膛</h2>
+<div class="case-box">
+<p>三一、海尔、伊利——系统跑了好几年，有CTO或数字化团队</p>
+<p>他们的问题不是"能不能做"——是<span class="highlight">"先做哪个"</span></p>
+</div>
+<p style="margin-top:20px">A类企业的课不是今天要讲的。<br>你们今天的收获是<span class="highlight">对标</span>——看看别人做了什么。</p>
+<div class="speaker-note">🎤 "A类在座的有多少？可能不多。如果你在A类，恭喜你。"</div>
+</div>
+
+<!-- SLIDE 6: B Type - Main -->
+<div class="slide">
+<div class="page-num">6/20</div>
+<h2>🟡 B类：<span class="highlight">有矿不会挖</span>——主力军</h2>
+<ul>
+<li>年营收5-30亿</li>
+<li>ERP/OA/财务都上了——但各部门数据<span class="highlight">不互通</span></li>
+<li>IT部门3-5人只做运维，不懂AI</li>
+<li>老板知道"数据是资产"——实际上数据躺在<span class="danger">"数据坟墓"</span>里</li>
+</ul>
+<p style="margin-top:20px">B类企业的第一步不是上AI——是<span class="highlight">搞清楚自己有哪些数据、数据准不准</span></p>
+<div class="speaker-note">🎤 "你觉得自己在B类。那我要问你一个更扎心的问题——你的数据，准不准？不要急着点头。"</div>
+</div>
+
+<!-- SLIDE 7: C Type -->
+<div class="slide">
+<div class="page-num">7/20</div>
+<h2>🟡 C类：两手空空</h2>
+<div class="case-box">
+<p>数据在Excel和微信里，没有IT团队</p>
+<p>不是落后——是<span class="highlight">起点不同</span></p>
+</div>
+<p style="margin-top:20px">C类的<span class="highlight">隐藏优势</span>：没有"数据坟墓"</p>
+<p>数据虽少但干净。决策链短——直接买SaaS</p>
+<div class="speaker-note">🎤 "C类企业有一个B类没有的优势——你们的数据干净。B类数据虽然多，但脏。脏数据比没数据更危险。"</div>
+</div>
+
+<!-- SLIDE 8: D Type -->
+<div class="slide">
+<div class="page-num">8/20</div>
+<h2>🔴 D类：有枪没子弹</h2>
+<div class="case-box">
+<p>团队强、技术好——但数据基础差</p>
+<p>空降CTO、科技创业、集团"数字化特区"</p>
+</div>
+<p style="margin-top:20px">最快的车——只是<span class="highlight">还没铺路</span></p>
+<p>D1先建数据采集体系 · D2用外部数据先飞</p>
+<div class="speaker-note">🎤 "D类在座的可能不多。但如果你在——你的困境是'我的人能干活，但没东西让他们干'。"</div>
+</div>
+
+<!-- SLIDE 9: Section - Data Trap -->
+<div class="slide section-slide">
+<div class="section-num">Part 2 · 15min</div>
+<h2>你确定你的数据<br><span style="color:#ef4444">能用</span>吗？</h2>
+</div>
+
+<!-- SLIDE 10: Data Trap -->
+<div class="slide">
+<div class="page-num">10/20</div>
+<h2>三个场景——你有没有？</h2>
+<div class="story-box"><p>📦 ERP库存和仓库实物<span class="danger">对不上</span>——基于错误库存做的AI预测，还不如不做</p></div>
+<div class="story-box"><p>👤 CRM客户信息<span class="danger">三个月没更新</span>——AI打电话喊错名字</p></div>
+<div class="story-box"><p>🔗 销售CRM + 生产MES + 财务用友——<span class="danger">三个系统从不说话</span>。同一个客户三个名字："张三""张总""深圳张"</p></div>
+<div class="speaker-note">🎤 "你们公司有没有同一个客户在三个系统里有三个不同名字？有的话——AI以为你在服务三个客户。"</div>
+</div>
+
+<!-- SLIDE 11: Known Unknown -->
+<div class="slide">
+<div class="page-num">11/20</div>
+<h2>没数据 vs 数据不准</h2>
+<div class="grid-2">
+<div><p style="font-size:26px;text-align:center;padding:40px">没数据<br><span style="color:#94a3b8">你知道自己不知道</span><br><span style="color:#60a5fa">已知的未知</span></p></div>
+<div><p style="font-size:26px;text-align:center;padding:40px;color:#ef4444">数据不准<br><span style="color:#f87171">你以为知道<br>但其实不知道</span><br><span style="color:#ef4444;font-weight:800">未知的未知</span></p></div>
+</div>
+<p style="text-align:center;margin-top:30px;font-size:28px">后者<span class="danger">危险十倍</span></p>
+<div class="speaker-note">🎤 "数据不准比没数据更危险。没数据你知道自己不知道。数据不准你以为自己知道但其实不知道——基于错误数据做AI决策，后果比不做AI更糟。"</div>
+</div>
+
+<!-- SLIDE 12: Builder.ai -->
+<div class="slide">
+<div class="page-num">12/20</div>
+<h2>翻车回顾：13亿美元的"假AI"</h2>
+<div class="story-box">
+<p>Builder.ai号称"像点披萨一样开发App"</p>
+<p>微软+软银投资，估值<span class="highlight">13亿美元</span></p>
+<p>实际——印度程序员<span class="danger">人肉</span>干活</p>
+<p>2025年破产</p>
+</div>
+<p style="margin-top:20px">判断方法：<span class="highlight">"它能处理没见过的情况吗？"</span></p>
+<div class="speaker-note">🎤 "怎么判断供应商是不是真AI？问他：'它能处理没见过的情况吗？'答不出来的——不是AI。"</div>
+</div>
+
+<!-- SLIDE 13: Section - Four Layers -->
+<div class="slide section-slide">
+<div class="section-num">Part 3 · 15min</div>
+<h2>厨房诊断法</h2>
+<p style="font-size:24px;color:#94a3b8;margin-top:12px">外面超市什么都有。你家厨房能不能做饭？</p>
+</div>
+
+<!-- SLIDE 14: Four Layers -->
+<div class="slide">
+<div class="page-num">14/20</div>
+<h2>四个问题——今晚就能问</h2>
+<div class="case-box"><h3>🥘 业务层·菜谱</h3><p>你业务中最重复、最耗人力的三个环节是什么？</p></div>
+<div class="case-box" style="background:rgba(30,58,95,0.55)"><h3>🥩 数据层·料</h3><p>这些环节的数据，一个小时内能拉出来吗？</p></div>
+<div class="case-box" style="background:rgba(30,58,95,0.3)"><h3>🔥 技术层·灶</h3><p>有没有人能评估"AI供应商的方案靠不靠谱"？</p></div>
+<div class="case-box" style="background:rgba(30,58,95,0.15)"><h3>🍽️ 组织层·胃口</h3><p>除了你，谁会支持？谁会暗中抵制？</p></div>
+<div class="speaker-note">🎤 "这四个问题不需要请咨询公司。但你问完之后会得到一个答案——答案本身可能让你更焦虑。因为你知道卡在哪了，但不知道怎么解。"</div>
+</div>
+
+<!-- SLIDE 15: Overlap -->
+<div class="slide">
+<div class="page-num">15/20</div>
+<h2>不管你是什么起点——<span class="highlight">业务层永远是第一步</span></h2>
+<div class="case-box">
+<p>先想清楚<span class="highlight">"做什么菜"</span></p>
+<p>再判断料够不够 → 灶行不行 → 有没有人吃</p>
+<p style="color:#ef4444;margin-top:12px">别从"搞数据"开始——这是我见过最多的AI失败姿势</p>
+</div>
+<div class="speaker-note">🎤 "花半年做数据中台，然后发现没想清楚用来做什么——这是最常见的死法。"</div>
+</div>
+
+<!-- SLIDE 16: Industry Benchmark -->
+<div class="slide">
+<div class="page-num">16/20</div>
+<h2>行业对标——别人在什么位置</h2>
+<div class="grid-2">
+<div>
+<h3>🏭 制造业</h3>
+<div class="cell a" style="margin:8px 0;padding:12px">A · 三一、海尔、伊利</div>
+<div class="cell b" style="margin:8px 0;padding:12px">B · 冰山松洋、联合轴承</div>
+</div>
+<div>
+<h3>🛒 零售业</h3>
+<div class="cell a" style="margin:8px 0;padding:12px">A · 沃尔玛、京东</div>
+<div class="cell c" style="margin:8px 0;padding:12px">C · 美宜佳、茶颜悦色</div>
+</div>
+</div>
+<p style="margin-top:24px">如果你的对手是A，而你还在B——<br>他要超你，不是靠更好的产品，是<span class="highlight">靠更快的AI化</span></p>
+<div class="speaker-note">🎤 "看看你在同行里什么位置。"</div>
+</div>
+
+<!-- SLIDE 17: Interactive -->
+<div class="slide">
+<div class="page-num">17/20</div>
+<h2>互动：三个问题，找出你的问题</h2>
+<p style="font-size:20px;color:#94a3b8">跟你旁边的人互相问（3分钟）</p>
+<div class="case-box" style="margin-top:24px"><p style="font-size:24px">① 核心经营数据——一小时内能拉出来吗？</p></div>
+<div class="case-box"><p style="font-size:24px">② 有没有人能说清"每个系统里有什么数据"？</p></div>
+<div class="case-box"><p style="font-size:24px">③ 除了你——谁会支持、谁会抵触？</p></div>
+<div class="speaker-note">🎤 "不是让你回答我——是让你回答自己。两个No→C。一个有、一个没有→B。"</div>
+</div>
+
+<!-- SLIDE 18: Closing Quote -->
+<div class="slide section-slide">
+<h2 style="font-size:36px">"AI落地，大多数人不是在技术上失败的——<br>而是在<span style="color:#ef4444">'以为自己准备好了'</span><br>的错觉里失败的。"</h2>
+</div>
+
+<!-- SLIDE 19: Bridge -->
+<div class="slide">
+<div class="page-num">19/20</div>
+<h2>你现在知道了——</h2>
+<ul>
+<li>你在<span class="highlight">A/B/C/D</span>哪个格子</li>
+<li>你可能卡在<span class="highlight">数据层、技术层</span>还是<span class="highlight">组织层</span></li>
+</ul>
+<p style="margin-top:30px;font-size:26px">下一个问题不是"能不能做AI"——是<span class="highlight">"怎么走"</span></p>
+<p style="margin-top:12px">B类的两条路：B1先治后战还是B2边战边治？<br><span class="highlight">选错了——可能是几百万的代价</span></p>
+<div class="speaker-note">🎤 "如果你现在心里在想：'我是B类，数据不准，IT只会修电脑'——那你等下一定要认真听M3。"</div>
+</div>
+
+<!-- SLIDE 20: Hook -->
+<div class="slide" style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 80%)">
+<div class="page-num">20/20</div>
+<p style="font-size:20px;color:#64748b">休息十分钟</p>
+<h2 style="font-size:34px">如果你自测完发现<br>自己<span class="highlight">既像B又像C</span>——</h2>
+<p style="font-size:28px;margin-top:30px">来找我聊聊</p>
+<div class="speaker-note">🎤 精准瞄准B/C边界人群——最需要咨询帮助的群体。</div>
+</div>
+
+<script>
+let current=0;const slides=document.querySelectorAll('.slide');
+function show(n){slides.forEach(s=>s.classList.remove('active'));slides[n].classList.add('active');current=n}
+document.addEventListener('keydown',e=>{
+if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();if(current<slides.length-1)show(current+1)}
+if(e.key==='ArrowLeft'){e.preventDefault();if(current>0)show(current-1)}
+if(e.key==='Home'){e.preventDefault();show(0)}
+if(e.key==='End'){e.preventDefault();show(slides.length-1)}
+});
+document.addEventListener('click',e=>{if(e.clientX>window.innerWidth/2&&current<slides.length-1)show(current+1);if(e.clientX<window.innerWidth/2&&current>0)show(current-1)});
+show(0);
+</script>
+<div class="nav-hint">← 点击左侧 / → 点击右侧翻页 · 键盘 ← → 空格 · Home/End 首尾页</div>
+</body>
+</html>
