@@ -348,6 +348,22 @@ last_updated: 2026-06-23
 - **状态**：#可入课
 - **关联**：[[制造业九场景评分]] [[商贸六场景评分]] [[电商AI六大场景]]
 
+### Agent七大架构全景——从单Agent到企业级Graph Workflow（2026技术深度）
+- **来源**：课程主编供稿（音频转录）+2026行业实践（Anthropic SWE-bench/Klarna/Uber/LinkedIn生产部署） | **贡献者**：[你] | **日期**：[2026-07-02]
+- **核心内容**：Agent架构没有统一标准，选哪个取决于场景复杂度和控制力需求。演进路径：单Agent→多Agent协作→基于图的工作流
+  - **① 单Agent架构（Single Agent）**：一个大模型负责所有事——思考+调工具+输出。优点：简单、成本低。缺点：任务复杂就开始"思考爆炸"，上下文污染严重。代表：ChatGPT基础模式。适用：简单问答、单步任务
+  - **② ReAct架构（Reasoning + Acting）**：经典Agent范式——思考→行动→观察→再思考→循环直到完成。比单Agent强在链式推理、多步任务、可解释性强。缺点：Token消耗大、不太稳定、容易跑偏。Anthropic 2026最佳实践：从最简单的工作流开始，只有控制流在运行时不确定时才升级到ReAct。三个生产化关键模式：Bounded Execution（硬上限步数/Token/时间）、Circuit Breaker（检测停滞自动终止）、Context Engineering（上下文压缩）。SWE-bench实践：最简单的循环+精心设计的工具>复杂的多Agent编排
+  - **③ Plan-and-Execute（规划执行分离）**：先Planner生成完整计划→Executor按步骤执行。比ReAct稳定，适合代码生成、长流程任务。缺点：计划错了全盘崩溃，灵活性不如ReAct。SWE-agent五步模板是这个范式的实践
+  - **④ 多Agent架构（Multi-Agent）**：多个Agent分工协作——Planner/Reviewer/Worker Agent各司其职，由任务协调系统统筹。优点：任务拆解清晰、降低上下文污染、可扩展性强。缺点：成本高。适合团队协作、复杂项目、企业级应用。Ruflo v3.5反漂移配置：hierarchical拓扑+6-8个Agent上限+raft共识。——更稳定
+  - **⑤ Router+Skill架构（⭐AI Coding/Skill系统最佳实践）**：核心理念——不让模型想，让模型选。用户输入→Intent Router意图识别→路由到对应Skill执行。每个Skill=可执行能力+对应知识说明。极强稳定性、企业级可控、可缓存、易评估命中率。Claude Code Skills/Cursor/GitHub Copilot均采用此思路。关键发现（SkillRouter论文2026.3）：隐藏Skill内容会导致路由准确率下降31-44个百分点——完整Skill文本是路由信号来源。成本优化——三层路由器（cheap/balanced/frontier），便宜任务走Haiku，架构变更走Opus
+  - **⑥ 黑板系统（Blackboard）**：多个Agent同时读写共享状态，通过状态变化驱动执行。适合复杂协作场景，但状态管理复杂、出问题不易追踪。LangGraph工作流引擎和分布式系统常用此思路。对应LangGraph的TypedDict共享State+Reducer合并机制
+  - **⑦ Graph/Workflow架构（LangGraph·Temporal·Prefect·n8n——企业级生产主流）**：基于有向无环图（DAG）编排工作流，支持条件分支、并行执行、可回溯、可重试。LangGraph 2.0（2026.2发布）：Guardrail Nodes（ContentFilter/RateLimiter/AuditLogger）+ MCP/A2A协议+生产级Checkpointer。2026年生产部署：Klarna（客服80%时间缩减）、Uber（5000工程师省21000小时）、Replit（多Agent+Human-in-the-Loop）。何时用Graph——需要循环/重试/自修正、需要人审批暂停、状态需持久化、需要树形审计追踪
+  - **2026核心结论**：没有最好的架构，只有最合适的。简单验证用单Agent，多步探索用ReAct，工程化用Plan-and-Execute，协作用多Agent，精准技能用Router+Skill，共享状态用Blackboard，企业级生产用Graph/Workflow。AI Coding和Skill系统当前最佳实践是Router+Skill
+- **适用场景**：技术方向深度——帮老板理解"Agent到底怎么搭的"；M1认知篇技术补充；董宇轩的技术审核参考
+- **可入课模块**：M1 认知篇（Agent底层原理补充）
+- **状态**：#可入课
+- **关联**：[[LangChain三件套]] [[LangGraph状态图]] [[多Agent实现路径]]
+
 ### AI焦虑的本质+麦肯锡三层应用模型+流程地图方法
 - **来源**：课程主编供稿（音频转录）+麦肯锡2026全球AI调研 | **贡献者**：[你] | **日期**：[2026-07-01]
 - **核心内容**：企业对AI的焦虑本质上是"对不确定性的焦虑"——不知道自己哪里能用、怎么用。AI、大模型、智能体、Skill——各种词不断冒出，很多企业觉得不用AI不好意思跟人打招呼。但现实是多数企业最后一地鸡毛
