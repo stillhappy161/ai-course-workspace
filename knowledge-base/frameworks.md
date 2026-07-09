@@ -544,6 +544,19 @@ last_updated: 2026-06-23
 - **状态**：#可入课
 - **关联**：[[Palantir深度学习]] [[Demo脚本]] [[三阶段路线图]]
 
+### GitHub开源Ontology引擎汇总——六个可直接参考的项目
+- **来源**：GitHub深度搜索（2026.7） | **贡献者**：[你] | **日期**：[2026-07-09]
+- **核心内容**：GitHub上已有多个对标Palantir Ontology的开源实现。六个最值得关注
+  - **①foundry-ontology-open（⭐最推荐）**：直接对标Palantir三层架构。Python+SQLite+MCP Server。Object/Link/Action/Functions全部实现。**和董宇轩的技术栈完全一致。不是参考——是可直接clone下来改造成你的本体JSON引擎**
+  - **②@ontograph/core**：TypeScript版Palantir Ontology SDK。只有一个运行时依赖(zod)。内置350+预建供应链Ontology定义。导出OWL2/SHACL/Neo4j/JSON Schema/Mermaid。前端/Agent用TS时可直接当SDK
+  - **③nano-ontoprompt**：轻量Palantir Foundry。完整管线——数据连接→转换→映射→Ontology→知识图谱。自动映射引擎（数据集→Object、外键→Link）。支持SQLite（无Neo4j也能跑，重型依赖全部可选）——设计哲学和你完全一致
+  - **④OpenFoundry**：完整Palantir替代品（Rust+Svelte）。pre-1.0。远期参考——架构设计文档值得看
+  - **⑤Semantica**：六阶段LLM Pipeline自动生成Ontology+OWL推理器验证+GraphRAG（91%准确率）。参考其AI自动建本体逻辑——和你的"AI先扫文件→人判对错"一致
+  - **⑥OntoBricks（Databricks官方）**：Unity Catalog→四键生成知识图谱。B类客户大概率不用Databricks——参考其自动映射逻辑
+  - **给董宇轩的行动建议**：clone `foundry-ontology-open`→读懂Object/Link/Action实现→改造成你的本体JSON引擎+MCP Context Server。不要从零写——站在肩上改
+- **状态**：#可入课
+- **关联**：[[Palantir深度学习]] [[轻量化本体引擎]] [[MCP Context Server]]
+
 ### 企业地图Object/Link/Action建模详解——对标Palantir的轻量化实现
 - **来源**：Palantir Foundry技术文档+开发者社区+真实企业案例（Fortune 100消费品/斗山工程机械/空客A350） | **贡献者**：[你] | **日期**：[2026-07-07]
 - **核心内容**：对标Palantir的Object/Link/Action三层模型，裁掉B类不需要的，保留核心
